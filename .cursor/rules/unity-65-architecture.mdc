@@ -1,0 +1,34 @@
+---
+description: Unity 6.5 architecture, systems layout, and platform constraints
+alwaysApply: true
+---
+
+# Unity 6.5 Architecture
+
+- Engine: Unity 6.5 (6000.5.x), C#. This repo is not Unreal/Blueprint.
+- Data-driven: ScriptableObjects / JSON importers. No hardcoded tunables in MonoBehaviours.
+- Thin scenes; gameplay logic lives in domain systems under `Assets/Scripts/`.
+
+## System folders (single responsibility)
+
+- `Run/` — run state, character background, symptom severities
+- `Level/` — card queue, decisions, stat deltas, hidden vars
+- `Stats/` — four meters, thresholds, fail reasons
+- `Split/` — four minigame modes via `ISplitMinigame`
+- `Therapy/` — merge rules engine
+- `Skills/` — DBT limited-use replacement choices
+- `Progression/` — XP, level index, unlocks, modifiers
+- `Presentation/` — UI only; no gameplay rules in widgets
+
+## Performance and input
+
+- Avoid per-frame allocations in card flow; pool UI cards when needed.
+- Addressables optional later; MVP may use SO + Resources if documented.
+- Input System: swipe/touch + mouse drag + keyboard arrows on PC.
+- All player-facing strings via `BPD.Localization.Loc` keys (Unity Localization deferred until package supports EntityId on 6000.5).
+- UI stack: uGUI + adaptive shell (`AdaptiveShell`, safe area, portrait/landscape). See `ui-adaptive.mdc`.
+- Platforms: mobile + PC from day one — no desktop-only layouts.
+- Actions: **1 column in portrait**; landscape max **2** when wide enough. Tap height ≥ 104. Typography floors in `ui-adaptive.mdc`.
+- Input: Unity Input System (`com.unity.inputsystem` 1.18+ embedded/patched); Player activeInputHandler = Input System Only.
+- Dynamic Batching disabled per platform in Player settings.
+---

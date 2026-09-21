@@ -1,0 +1,62 @@
+---
+description: Card and content data authoring conventions for stubs and Sheets
+globs: "**/*.{asset,json,csv,md}"
+alwaysApply: false
+---
+
+# Content Data Authoring
+
+## Card assets (authoring surface)
+
+Create via `Assets → Create → BPD/Content/Card Definition`, then add to a deck
+(`Assets → Create → BPD/Content/Card Deck`).
+
+Paths:
+- Cards: `Assets/Resources/Content/Cards/SO_Card_*.asset`
+- Decks: `Assets/Resources/Content/Decks/SO_Deck_Default.asset`
+- Menu: `BPD → Content → Seed Default Card Deck` (recreates PLACEHOLDER stubs)
+
+### Required fields
+
+| Field | Purpose |
+|-------|---------|
+| `Id` | Stable id (`card_stub_001`) |
+| `SituationText` | Event / situation copy (PLACEHOLDER ok) |
+| `LeftActionName` + `LeftEffects` | Left swipe label + Wholeness/Stability/Safety/Closeness deltas |
+| `RightActionName` + `RightEffects` | Right swipe label + deltas |
+| `LeftTriggersLose` / `RightTriggersLose` | Force Split when that choice is applied |
+| `AllowSkill` | Show skill resolution on this card |
+| `RequiredSkill` | `DbtSkillId` gate (`None` = any unlocked charge) |
+| `SkillActionName` + `SkillEffects` | Skill button label + deltas |
+
+Runtime still applies through `CardChoice` / `StatDelta[]` via `CardDefinition.Left|Right|SkillChoice`.
+
+## DBT skill assets
+
+Create via `Assets → Create → BPD/Content/DBT Skill`. Optional overrides under:
+
+- `Assets/Resources/Content/Skills/SO_Skill_*.asset`
+
+Built-in catalog covers every `DbtSkillId` if assets are missing (`DbtSkillCatalog`).
+
+Fields: `Id`, `DisplayName`, `Module`, `Description`, `ChargesOnUnlock`, `IsProductive`.
+
+Unlock only via Split survive (`SplitSkillRewards`) or Therapy Need `SkillUnlockId`.
+
+## Placeholders
+
+- Stub ids: `card_stub_001`, `therapy_stub_situation_01`, etc.
+- Mark unfinished copy/balance with `PLACEHOLDER` in text or ids.
+- Humans replace stubs via GDD / Google Sheets export — do not invent final narrative.
+
+## Localization
+
+- MVP: PLACEHOLDER copy may live on the card SO (content asset, not gameplay C#).
+- Skill educational text may live in catalog builtins / SO.
+- Later Sheets pass: move final EN/RU into locale tables; keep SO ids stable.
+- Never hardcode player-facing English inside gameplay systems (controllers/services).
+
+## Canon
+
+See `Docs/Canon-Mechanics.md` for Split-at-Zero, XP+deck level win, endings, and skill unlock rules.
+---

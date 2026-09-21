@@ -1,0 +1,117 @@
+{
+  "cards": [
+    {
+      "id": "therapy_stub_situation_01",
+      "kind": "Situation",
+      "textKey": "therapy.stub.situation.01"
+    },
+    {
+      "id": "therapy_stub_thought_01",
+      "kind": "Thought",
+      "textKey": "therapy.stub.thought.01"
+    },
+    {
+      "id": "therapy_stub_behavior_01",
+      "kind": "Behavior",
+      "textKey": "therapy.stub.behavior.01"
+    },
+    {
+      "id": "therapy_stub_emotion_01",
+      "kind": "Emotion",
+      "textKey": "therapy.stub.emotion.01",
+      "memoryId": "memory_stub_01"
+    },
+    {
+      "id": "therapy_stub_need_01",
+      "kind": "Need",
+      "textKey": "therapy.stub.need.01",
+      "skillUnlockId": "WiseMind"
+    },
+    {
+      "id": "therapy_stub_situation_02",
+      "kind": "Situation",
+      "textKey": "therapy.stub.situation.02"
+    },
+    {
+      "id": "therapy_stub_thought_02",
+      "kind": "Thought",
+      "textKey": "therapy.stub.thought.02"
+    },
+    {
+      "id": "therapy_stub_behavior_02",
+      "kind": "Behavior",
+      "textKey": "therapy.stub.behavior.02"
+    },
+    {
+      "id": "therapy_stub_emotion_02",
+      "kind": "Emotion",
+      "textKey": "therapy.stub.emotion.02"
+    },
+    {
+      "id": "therapy_stub_need_02",
+      "kind": "Need",
+      "textKey": "therapy.stub.need.02",
+      "skillUnlockId": "Tipp"
+    },
+    {
+      "id": "therapy_stub_situation_03",
+      "kind": "Situation",
+      "textKey": "therapy.stub.situation.03"
+    },
+    {
+      "id": "therapy_stub_thought_03",
+      "kind": "Thought",
+      "textKey": "therapy.stub.thought.03"
+    },
+    {
+      "id": "therapy_stub_behavior_03",
+      "kind": "Behavior",
+      "textKey": "therapy.stub.behavior.03"
+    },
+    {
+      "id": "therapy_stub_emotion_03",
+      "kind": "Emotion",
+      "textKey": "therapy.stub.emotion.03"
+    },
+    {
+      "id": "therapy_stub_need_03",
+      "kind": "Need",
+      "textKey": "therapy.stub.need.03",
+      "skillUnlockId": "Repair"
+    }
+  ],
+  "emotionRecipes": [
+    {
+      "situationId": "therapy_stub_situation_01",
+      "thoughtId": "therapy_stub_thought_01",
+      "emotionId": "therapy_stub_emotion_01"
+    },
+    {
+      "situationId": "therapy_stub_situation_02",
+      "thoughtId": "therapy_stub_thought_02",
+      "emotionId": "therapy_stub_emotion_02"
+    },
+    {
+      "situationId": "therapy_stub_situation_03",
+      "thoughtId": "therapy_stub_thought_03",
+      "emotionId": "therapy_stub_emotion_03"
+    }
+  ],
+  "needRecipes": [
+    {
+      "emotionId": "therapy_stub_emotion_01",
+      "behaviorId": "therapy_stub_behavior_01",
+      "needId": "therapy_stub_need_01"
+    },
+    {
+      "emotionId": "therapy_stub_emotion_02",
+      "behaviorId": "therapy_stub_behavior_02",
+      "needId": "therapy_stub_need_02"
+    },
+    {
+      "emotionId": "therapy_stub_emotion_03",
+      "behaviorId": "therapy_stub_behavior_03",
+      "needId": "therapy_stub_need_03"
+    }
+  ]
+}

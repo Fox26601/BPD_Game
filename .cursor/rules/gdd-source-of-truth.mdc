@@ -1,0 +1,32 @@
+---
+description: GDD is source of truth for BPD Game mechanics and content ownership
+alwaysApply: true
+---
+
+# GDD Source of Truth
+
+- Canonical design doc: https://docs.google.com/document/d/1C0_vVVdlgIe_puogVwg70V57_oPwYEizRgifi-kyguk/edit?tab=t.0
+- Repo mechanics lockfile: `Docs/Canon-Mechanics.md` (chat-approved rules).
+- Do not invent mechanics absent from the GDD / Canon-Mechanics unless the user explicitly approves them in chat.
+- Prefer updating GDD or Canon-Mechanics (or citing an explicit chat decision) before changing gameplay rules in code.
+
+## Canon snapshot
+
+- Genre: narrative roguelite / Reigns-style card swipe / psychological simulation.
+- Four stats: Wholeness, Stability, Safety, Closeness.
+- **Split only at Zero** (stat ≤ 0). **Max-pole Split permanently excluded.** Four Splits = four stats with multi-step DBT exercises.
+- Survive Split → stabilize, unlock skill + charges, **resume same deck at crisis card with identical text/deltas** (not a level clear). Die in Split → restart level from snapshot.
+- Level win: `LevelXp >= XpToCompleteLevel` **or** deck empty → Meta.
+- Card decks **by act** (`LevelsPerAct` = 15); within-act **level-band offset** on curated pool; fallback default deck.
+- **Target: 45 levels** (`LevelsBeforeEnding` default 45). Four run endings scored from Split + symptoms + therapy + character (weights in Canon-Mechanics).
+- Nine BPD symptoms start at maximum severity each run; XP spends reduce any symptom and unlock educational/gameplay modifiers (full matrix in Canon-Mechanics / ModifierRegistry).
+- Therapy merge: Situation + Thought → Emotion; Emotion + Behavior → Need. Data-driven recipes. Distinct traumatic memories apply −25% Stability at next level start (per memory).
+- DBT skills are limited-use swipe replacements; unlock only via Split survive or Therapy. Full catalog for every `DbtSkillId`.
+- Characters A/B/C: backgrounds only; no visible protagonist; gender-neutral narration.
+
+## Ownership
+
+- Repo AI owns architecture and systems code.
+- Human + GDD/Sheets own final copy and balance numbers.
+- AI stub data must use ids/keys marked `PLACEHOLDER` (e.g. `card_stub_001`).
+---

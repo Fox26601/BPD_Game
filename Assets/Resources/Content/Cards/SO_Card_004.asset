@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda3994cbb3eb478f8e3c6acff85dd9a, type: 3}
+  m_Name: SO_Card_004
+  m_EditorClassIdentifier: 
+  Id: card_stub_004
+  SituationText: 'PLACEHOLDER: Someone misunderstands you.'
+  LeftActionName: Defend hard
+  LeftEffects:
+    Wholeness: 0
+    Stability: -3
+    Safety: 0
+    Closeness: 5
+  LeftTriggersLose: 0
+  RightActionName: Ask for clarity
+  RightEffects:
+    Wholeness: 4
+    Stability: 0
+    Safety: -4
+    Closeness: 0
+  RightTriggersLose: 0
+  AllowSkill: 1
+  RequiredSkill: 19
+  SkillActionName: DEAR MAN
+  SkillEffects:
+    Wholeness: 0
+    Stability: 6
+    Safety: 2
+    Closeness: 0

@@ -1,0 +1,16 @@
+---
+description: C# naming, interfaces, and test conventions for BPD Game
+globs: "**/*.cs"
+alwaysApply: false
+---
+
+# C# Conventions
+
+- Namespace root: `BPD.*` matching system folders (`BPD.Run`, `BPD.Level`, …).
+- ScriptableObject assets: prefer `SO_` / `DA_` prefixes in asset names by type.
+- Prefer interfaces for cross-system APIs: `ISplitMinigame`, `ICardEffect`, skill hooks.
+- Comments in English; describe logic only — no tutorial fluff.
+- Prefer Edit Mode tests for merge rules, stat math, and card effect application.
+- Keep MonoBehaviours thin: orchestrate; put rules in plain C# / SO data.
+- No unused public fields; expose tunables on ScriptableObjects / config.
+---

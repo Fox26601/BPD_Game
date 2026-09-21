@@ -1,0 +1,8 @@
+{
+  "en": {
+    "note": "Primary locale. Keys live in BPD.Localization.Loc for MVP; migrate to Unity Localization tables later."
+  },
+  "ru": {
+    "note": "PLACEHOLDER empty RU locale — fill during localization pass."
+  }
+}

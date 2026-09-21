@@ -1,0 +1,58 @@
+---
+description: Adaptive uGUI rules for mobile portrait and desktop landscape
+alwaysApply: true
+---
+
+# Adaptive UI (Mobile + Desktop)
+
+Platforms ship together: phone portrait and desktop/window landscape. Every HUD change must work in both.
+
+## Required patterns
+
+- Canvas: `ScaleWithScreenSize`, reference **1080×1920** (portrait-first), `matchWidthOrHeight ≈ 0.5`, `pixelPerfect = true`.
+- Always inset content with `Screen.safeArea` via `AdaptiveShell` (notches / home indicator).
+- Prefer **LayoutGroups + LayoutElement** over absolute pixel anchors for action rows and lists.
+- Best-fit **off** for Title/Body/Button/Caption (legacy Text blurs with best-fit + fractional scale).
+- Use `TextRole` (`Title` / `Body` / `Button` / `Caption`) — not raw font sizes.
+- Long character labels: multiline via `UiFactory.ToMultilineActionLabel`.
+- Gesture thresholds (swipe) must be **relative to screen width**, not fixed pixels.
+- **Arrow hints**: every interactive action button must show its key (`↑` `←` `→` `↓`) via `FinalizeActions`.
+- Binding: 1=`↑`; 2=`←``→`; 3=`↑``←``→`; 4=+`↓`. Level forces `←` left / `→` right always; `↑` skill **only when a usable DBT charge exists**. Therapy (5+): `↑↓` focus, `→`/Enter confirm, `←` Back.
+- Touch/click still works alongside keyboard. No gameplay rules inside widgets.
+
+## Compact type scale (Reigns-like density)
+
+Reference portrait **1080×1920**. Keep chrome compact so content + actions fit without clipping.
+
+| Role | Size |
+|------|------|
+| Title | 28 |
+| Body | 22 |
+| Button | 18–20 |
+| Caption | 18 |
+
+Buttons: `minHeight` **72**, preferred **80**. Tap target ≥ 64. Action cells: ~72 single-line, ~88 two-line.
+
+## Shell band flex / mins
+
+| Band | flex | min |
+|------|------|-----|
+| Header | 0.06 | 40 |
+| Stats | 0.15 | 96 |
+| Content | 0.34 | 120 |
+| Actions | 0.45 | 200 |
+
+- Stats: **2×2 grid**, cell height floor **56**. Do not pack four tiny columns on mobile.
+- Actions: **1 column in portrait**; landscape max **2 columns** and only when host width ≥ 1100. Never 3 columns for long labels.
+- Hint/status live in the **content** band (above actions), never under the action grid.
+- Character select / Meta: keep content compact (card hidden) so ActionsBand can show all buttons.
+- Meta: **symptom tree** (all 9) in content **ScrollRect** (masked) — not ActionsBand; actions = Reduce / Therapy / Next level. Meta/Therapy shell: content flex ↑, actions flex ↓.
+- Therapy: **merge board** (S/T/B + locked Emotion/Need) in same scroll host; actions = Merge / Back (+ short phase switches). Compact board cards ~52–56.
+
+## Verification
+
+- Game view **Scale = 1x** only. Scale 2x/3x is editor zoom and will look huge/soft even when the UI is correct.
+- Smoke both: **1080×1920** and **1920×1080** at Scale 1x.
+- Character select: title/stats/body readable but not dominating; all three character buttons fully visible with arrow prefixes; no hint/status stacked under buttons.
+- Meta / level buttons stay sharp and respond to arrow keys.
+---

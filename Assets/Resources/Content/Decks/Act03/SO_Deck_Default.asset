@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ffa3c10ed348c1a527f24a7e9e6e7e, type: 3}
+  m_Name: SO_Deck_Default
+  m_EditorClassIdentifier: 
+  Id: deck_act03
+  ActIndex: 3
+  Cards:
+  - {fileID: 11400000, guid: 61df3da890274e1ea402d62b10b81a33, type: 2}
+  - {fileID: 11400000, guid: 5d583f0c78aa4086b1d675c5fccb09f4, type: 2}
+  - {fileID: 11400000, guid: 30e5bd350943426895e5ab8c91ea81e1, type: 2}
+  - {fileID: 11400000, guid: b30b63614dca42fe8cac408aca9f53b6, type: 2}
+  - {fileID: 11400000, guid: 6324e9242e5a43f6a5e6c835ee4cb21a, type: 2}

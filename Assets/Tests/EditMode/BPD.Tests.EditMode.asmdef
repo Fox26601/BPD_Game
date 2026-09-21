@@ -1,0 +1,24 @@
+{
+    "name": "BPD.Tests.EditMode",
+    "rootNamespace": "BPD.Tests.EditMode",
+    "references": [
+        "GUID:27619889ceb1c4a4b90b5418eadcb3eb",
+        "GUID:0acc523941302664db1f4e527237feb3",
+        "BPD.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
